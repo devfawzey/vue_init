@@ -10,7 +10,6 @@ import RegisterGlobalComponents from "@/plugins/RegisterGlobalComponents.ts";
 
 const app = createApp(App)
 
-
 app.use(createPinia())
 app.use(router)
 
