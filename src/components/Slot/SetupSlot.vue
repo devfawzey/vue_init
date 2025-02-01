@@ -5,7 +5,6 @@ defineSlots<{
 }>()
 const label = "default label from setup slot"
 </script>
-
 <template>
   <div>
     <slot name="default" :label="label"/>

@@ -1,7 +1,6 @@
 # Vue
 
 ## ComponentCommunication
-
 - PropWithEmit
     - Child
       ```vue
@@ -49,7 +48,6 @@
     <Child v-model:input="input"/>
    </template>
   ```
-
 ## RemoveUnNecessaryAttribute
 
 ```vue
