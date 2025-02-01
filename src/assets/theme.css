@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary-mint: #2727a3;
+    --color-red-100: #8e3232;
+    --color-body:#2e2e2e;
+    --font-weight-more-extra-body: 900;
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji";
+    --shadow-3xs: 0 7px 10px 0px rgba(0, 0, 0, 0.08);
+    --spacing-header-height:60px;
+}
