@@ -10,8 +10,9 @@ function getLabelFromButton(label:string){
   <main>
     <div class="text-2xl font-custom">
       <p v-text="'Home View Page'" style="color:var(--color-body)"/>
-      <Button :getLabelFromButton="getLabelFromButton">
-      </Button>
+      <h1 is="vue:Wrapper">
+        MY HOME VIEW
+      </h1>
     </div>
   </main>
 </template>

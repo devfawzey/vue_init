@@ -1,33 +1,51 @@
-# __init
+# Vue
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+## ComponentCommunication
+- PropWithEmit
+  - Child
+    ```vue
+    <script setup lang="ts">
+    import { defineProps, computed } from "vue";
+    const props = defineProps<{ input: string }>();
+    const emit = defineEmits<{(e: "update:input", value: string): void}>();
+    const inputModel = computed({
+      get() {
+        return props.input;
+      },
+      set(newInputValue) {
+        emit("update:input", newInputValue);
+      },
+    });
+    </script>
+    <template>
+      <input v-model="inputModel" />
+    </template>
+    ```
+  - Parent
+    ```vue
+    <script setup>
+       const input = ref('parent-ref')
+    </script>
+    <template>
+        <Child :input="input" @update:input="$event=>(input=event)"/>
+    </template>
+    ```
+- UsingModel
+  - Child
+   ```vue
+  <script setup lang="ts">
+    const input = defineModel("input")
+  </script>
+  <template>
+  <input v-model="input" />
+  </template>
+   ```
+  - Parent
+  ```vue
+   <script setup>
+     const input = ref('parent-ref')
+   </script>
+   <template>
+    <Child v-model:input="input"/>
+   </template>
+  ```
