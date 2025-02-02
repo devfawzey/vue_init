@@ -52,10 +52,12 @@
 ```vue
 
 <script setup lang="ts">
-  const title = "title"
+  const title = "title";
+  const falsyValues = [null, undefined, false, NaN, 0, -0, 0n, "", document.all]
 </script>
 <template>
   <button v-bind:[title]="null"/>
+  <button v-bind="{hasText:null}"/>
   <button v-bind:[title]="undefined"/>
 </template>
 ```
