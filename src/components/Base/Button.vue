@@ -1,11 +1,8 @@
 <script setup lang="ts">
-const label = "hello from button"
-defineProps<{getLabelFromButton:(label:string)=>string,consoleLabel?:void}>()
+defineProps<{ label?: string }>()
 </script>
 <template>
-  <div @click="getLabelFromButton(label)">
-    <h1>div</h1>
-    <slot/>
-    <slot name="icon"/>
-  </div>
+  <button v-text="label" type="button"
+          class="border border-white cursor-pointer hover:bg-gray-300 hover:border-gray-300 px-4 py-1.5 rounded-md capitalize ">
+  </button>
 </template>

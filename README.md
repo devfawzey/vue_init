@@ -127,3 +127,13 @@ watch(user, (userNewValue) => {
     return { data, error }
     }
     ```
+  
+# Advanced
+## EventBinding
+```vue
+<template>
+  <button v-on="isFetchingBtn ? {click:sendFetchAccess}:{}"/>
+  <button v-on:['click']="sendFetchAccess"/>
+  <button @[eventHandler]="sendFetchAccess"/>
+</template>
+```
