@@ -127,6 +127,26 @@ watch(user, (userNewValue) => {
     return { data, error }
     }
     ```
+# More
+## Prevents unnecessary reactivity overhead
+    ```vue
+    <script setup lang="ts">
+    import { ref, markRaw, Component } from "vue";
+    import MyComponent from "@/components/MyComponent.vue";
+    
+    const dynamicComponent = ref<Component | null>(null);
+    
+    const loadComponent = () => {
+    dynamicComponent.value = markRaw(MyComponent); // Prevent reactivity
+    };
+    </script>
+    
+    <template>
+      <button @click="loadComponent">Load Component</button>
+      <component v-if="dynamicComponent" :is="dynamicComponent" />
+    </template>
+    ```
+
   
 # Advanced
 ## EventBinding
