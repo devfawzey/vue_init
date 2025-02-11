@@ -156,3 +156,11 @@ watch(user, (userNewValue) => {
   <button @[eventHandler]="sendFetchAccess"/>
 </template>
 ```
+## Export && Import
+```ts
+export default function useMouse() {
+}
+export const useCounter = 0;
+export { default as HomeView } from "./index.vue";
+import useMouse, {useCounter} from "path_example";
+```
