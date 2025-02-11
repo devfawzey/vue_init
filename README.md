@@ -108,7 +108,7 @@ watch(user, (userNewValue) => {
 }, {deep: true, immediate: true})
 ```
 
-# Composables
+# Composable
 - useFetch
     ```ts
     import { ref, toValue, watchEffect, type ComputedRef, watch } from "vue"
@@ -121,7 +121,6 @@ watch(user, (userNewValue) => {
     fetch(reactiveURL).then(res => res.json()).then((json) => (data.value = json))
     } catch (err: any) {
     error.value = err;
-    console.log("somethingwent wrong")
     }
     })
     return { data, error }
