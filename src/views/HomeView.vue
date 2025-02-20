@@ -19,9 +19,9 @@ const smAndLarger = breakpoints.greaterOrEqual("sm")
 
 <template>
   <main id="home-page">
-      <h1>Home View</h1>
-      <Teleport to="#app" :disabled="smAndLarger">
-        <Button label="home"/>
-      </Teleport>
+    <h1>Home View</h1>
+    hello world string
+    <Button variant="outline" label="hello world">
+    </Button>
   </main>
 </template>

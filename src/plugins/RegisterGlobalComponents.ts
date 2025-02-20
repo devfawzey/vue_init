@@ -2,6 +2,8 @@ import Wrapper from "@/components/Base/Wrapper.vue";
 import type {App} from "vue"
 import Button from "@/components/Base/Button.vue";
 
-export default function (app:App): void {
-    app.component("Wrapper", Wrapper).component("Button", Button)
-}
+const registerGlobalComponents = () => ({
+    install(app: App, options?: Record<string, any>) {
+        app.component("BaseWrapper", Wrapper).component("BaseButton", Button)
+    }
+})

@@ -1,18 +1,24 @@
 // import './assets/main.css'
 import "@/assets/tailwind.css";
 
-import {createApp} from 'vue'
+import {type App, createApp} from 'vue'
 import {createPinia} from 'pinia'
 
-import App from './App.vue'
+import TApp from './App.vue'
 import router from './router'
-import RegisterGlobalComponents from "@/plugins/RegisterGlobalComponents.ts";
+import Wrapper from "@/components/Base/Wrapper.vue";
+import Button from "@/components/Base/Button.vue";
 
-const app = createApp(App)
+export const myPlugin = {
+    install(app: App, options?: Record<string, any>) {
+        app.component("BaseWrapper", Wrapper).component("BaseButton", Button)
+    }
+}
+
+const app = createApp(TApp)
 
 app.use(createPinia())
 app.use(router)
-
-RegisterGlobalComponents(app);
+app.use(myPlugin)
 
 app.mount('#app')
