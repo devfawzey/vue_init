@@ -19,7 +19,7 @@ const smAndLarger = breakpoints.greaterOrEqual("sm")
 
 <template>
   <main id="home-page">
-    <h1>Home View</h1>
+    <h1>{{$translate('')}}</h1>
     hello world string
     <Button variant="outline" label="hello world">
     </Button>
